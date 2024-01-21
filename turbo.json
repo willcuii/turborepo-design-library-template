@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": [
+    "**/config-eslint/index.js",
+    "**/config-prettier/index.js",
+    "**/config-tsconfig/*.json"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "storybook-static/**"
+      ]
+    },
+    "clean": {
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "types:check": {
+      "inputs": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "outputs": []
+    }
+  }
+}
