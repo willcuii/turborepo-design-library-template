@@ -2,5 +2,13 @@
   "extends": "@tdlt/config-typescript/react-library.json",
   "compilerOptions": {
     "types": ["node"]
-  }
+  },
+  "include": [
+    "./src",
+    "./src/**/*.json",
+    "./tests",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
+  ],
+  "exclude": ["./src/components/**/*.stories.tsx"]
 }
