@@ -25,6 +25,6 @@ dist-ssr
 
 .env
 .cache
+.turbo
 server/dist
 public/dist
-storybook-static/

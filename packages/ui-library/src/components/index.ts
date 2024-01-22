@@ -1,1 +1,1 @@
-export { default, type ButtonProps } from './Button';
+export {default, type ButtonProps} from './Button';

@@ -6,7 +6,7 @@ test-sb:
 
 lint:
   pnpm lint
-  pnpm prettier
+  pnpm format
 
 in:
   pnpm install

@@ -13,7 +13,7 @@
     "build": "vite build && tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build --output-dir ../../dist/storybook-static"
   },
   "dependencies": {
     "react": "^18.2.0",
