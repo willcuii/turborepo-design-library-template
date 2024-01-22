@@ -10,7 +10,8 @@
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
     "prepare": "husky install",
-    "build-storybook": "cd packages/ui-library && pnpm run build-storybook"
+    "build-storybook": "cd packages/ui-library && pnpm run build-storybook",
+    "preview-build-storybook": "pnpm dlx http-server ./dist/storybook-static"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
