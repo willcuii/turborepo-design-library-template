@@ -17,3 +17,7 @@ in:
 
 build:
   pnpm build
+
+release:
+  pnpm version-packages
+  pnpm publish-packages

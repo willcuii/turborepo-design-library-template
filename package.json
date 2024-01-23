@@ -13,7 +13,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish",
+    "publish-packages": "turbo run build --filter=docs^... && changeset publish",
     "prepare": "husky install",
     "build-storybook": "cd packages/ui-library && pnpm run build-storybook",
     "preview-build-storybook": "pnpm dlx http-server ./dist/storybook-static"
