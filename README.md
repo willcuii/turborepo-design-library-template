@@ -1,11 +1,14 @@
-# Turborepo Design System Starter
+# Turborepo Design Library Template
 
-This guide explains how to use a React design system starter powered by:
-
+This guide explains how to use a React design system template powered by:
 - 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
 - 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
-- 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
+- 🛠 [Vite](https://vitejs.dev/) — Next Generation Frontend Tooling
 - 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
+- 🐶 [Husky](https://typicode.github.io/husky/#/) — Git hooks made easy
+- 🛠 [Just](https://github.com/microsoft/just) — Task runner for project-specific commands
+- 📦 [pnpm](https://pnpm.io/) — Fast, disk space efficient package manager
+
 
 As well as a few others tools preconfigured:
 
@@ -15,20 +18,14 @@ As well as a few others tools preconfigured:
 - [Changesets](https://github.com/changesets/changesets) for managing versioning and changelogs
 - [GitHub Actions](https://github.com/changesets/action) for fully automated package publishing
 
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest -e design-system
-```
-
 ### Useful Commands
 
 - `pnpm build` - Build all packages, including the Storybook site
 - `pnpm dev` - Run all packages locally and preview with Storybook
 - `pnpm lint` - Lint all packages
 - `pnpm changeset` - Generate a changeset
+- `pnpm version-packages` - Manage package versioning and changelogs
+- `pnpm publish-packages` - Build all packages and publish to Github packages
 - `pnpm clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
 
 ## Turborepo
@@ -41,11 +38,14 @@ Using Turborepo simplifies managing your design system monorepo, as you can have
 
 This Turborepo includes the following packages and applications:
 
-- `apps/docs`: Component documentation site with Storybook
-- `packages/ui`: Core React components
+- `docs`: Documentations for the design systems
+- `packages/icons`: Icon components
+- `packages/tokens`: Token elements including colors, typographys, spaces, etc.
+- `packages/ui-library`: Core React components
 - `packages/utils`: Shared React utilities
-- `packages/typescript-config`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-config`: ESLint preset
+- `packages/config-typescript`: Shared `tsconfig.json`s used throughout the Turborepo
+- `packages/config-eslint`: ESLint preset
+- `packages/config-prettier`: Prettier preset
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `pnpm add`.
 
@@ -53,21 +53,21 @@ This example sets up your `.gitignore` to exclude all generated files, other fol
 
 ### Compilation
 
-To make the core library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `tsup`, which uses `esbuild` to greatly improve performance.
+To make the core library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `vite` to greatly improve performance.
 
 Running `pnpm build` from the root of the Turborepo will run the `build` command defined in each package's `package.json` file. Turborepo runs each `build` in parallel and caches & hashes the output to speed up future builds.
 
-For `acme-core`, the `build` command is the following:
+For `ui-library`, the `build` command is the following:
 
 ```bash
-tsup src/index.tsx --format esm,cjs --dts --external react
+vite build && tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist
 ```
 
-`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `acme-core` then instructs the consumer to select the correct format:
+`vite` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `ui-library` then instructs the consumer to select the correct format:
 
-```json:acme-core/package.json
+```json:ui-library/package.json
 {
-  "name": "@acme/core",
+  "name": "@willcuii/ui",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -76,10 +76,10 @@ tsup src/index.tsx --format esm,cjs --dts --external react
 }
 ```
 
-Run `pnpm build` to confirm compilation is working correctly. You should see a folder `acme-core/dist` which contains the compiled output.
+Run `pnpm build` to confirm compilation is working correctly. You should see a folder `ui-library/dist` which contains the compiled output.
 
 ```bash
-acme-core
+ui-library
 └── dist
     ├── index.d.ts  <-- Types
     ├── index.js    <-- CommonJS version
@@ -88,9 +88,9 @@ acme-core
 
 ## Components
 
-Each file inside of `acme-core/src` is a component inside our design system. For example:
+Each file inside of `ui-library/src/components` is a component inside the design library. For example:
 
-```tsx:acme-core/src/Button.tsx
+```tsx:ui-library/src/components/Button.tsx
 import * as React from 'react';
 
 export interface ButtonProps {
@@ -106,7 +106,7 @@ Button.displayName = 'Button';
 
 When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
 
-```tsx:acme-core/src/index.tsx
+```tsx:ui-library/src/index.tsx
 import * as React from "react";
 export { Button, type ButtonProps } from "./Button";
 // Add new component exports here
@@ -118,13 +118,13 @@ Storybook provides us with an interactive UI playground for our components. This
 
 - Use Vite to bundle stories instantly (in milliseconds)
 - Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@acme-core` for imports
+- Support using module path aliases like `@OWNER` for imports
 - Write MDX for component documentation pages
 
 For example, here's the included Story for our `Button` component:
 
 ```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@acme-core/src';
+import { Button } from '@OWNER/src';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Button" component={Button} />
@@ -152,11 +152,31 @@ This example includes a few helpful Storybook scripts:
 - `pnpm build`: Builds the Storybook UI and generates the static HTML files
 - `pnpm preview-storybook`: Starts a local server to view the generated Storybook UI
 
+## Deploying Storybook to GitHub Pages
+
+This project uses a GitHub Action to automatically deploy the built Storybook to GitHub Pages whenever changes are pushed to the main branch. This allows us to easily share and showcase your components and UI library, and collaborating with the designers.
+
+
+### Configuration
+
+To set up the deployment, follow these steps:
+
+1. In your repository, navigate to the **Settings** tab.
+2. Scroll down to the **GitHub Pages** section.
+3. Select the branch you want as the source for GitHub Pages (it is default to `main` branch in this repo).
+4. If you are targeting a different branch as the source, change the `depoly-storybook-to-gp` according.
+
+
+### GitHub Action Workflow
+
+The deployment is handled by a GitHub Action workflow defined in the `.github/workflows/deploy-storybook.yml` file. Here's an example of the workflow configuration:
+
+
 ## Versioning & Publishing Packages
 
-This example uses [Changesets](https://github.com/changesets/changesets) to manage versions, create changelogs, and publish to npm. It's preconfigured so you can start publishing packages immediately.
+This template uses [Changesets](https://github.com/changesets/changesets) to manage versions, create changelogs, and publish to npm. It's preconfigured so you can start publishing packages immediately.
 
-You'll need to create an `NPM_TOKEN` and `GITHUB_TOKEN` and add it to your GitHub repository settings to enable access to npm. It's also worth installing the [Changesets bot](https://github.com/apps/changeset-bot) on your repository.
+You'll need to create an `NPM_TOKEN` and `GITHUB_TOKEN` and add it to your GitHub repository `settings / Actions secrets and variables / Repository secrets` to enable access to npm. It's also worth installing the [Changesets bot](https://github.com/apps/changeset-bot) on your repository.
 
 ### Generating the Changelog
 
