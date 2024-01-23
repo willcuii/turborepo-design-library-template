@@ -1,4 +1,4 @@
-name: Release
+name: Create version packages PR or release
 
 on:
   push:
@@ -10,11 +10,6 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     name: Release
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-    environment:
-      name: github-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -25,38 +20,18 @@ jobs:
         with:
           node-version: 18
 
-      - name: Setup Node.js 18.x
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      
-      - name: Build storybook
-        run: pnpm build-storybook
 
-      - name: Setup Github Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
         with:
-          path: "./dist/storybook-static"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      # - name: Create Release Pull Request or Publish to npm
-      #   id: changesets
-      #   uses: changesets/action@v1
-      #   with:
-      #     # This expects you to have a script called release which does a build for your packages and calls changeset publish
-      #     publish: pnpm release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          version: pnpm version-packages
+          publish: pnpm release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Send a Slack notification if a publish happens
       #   if: steps.changesets.outputs.published == 'true'

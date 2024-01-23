@@ -14,3 +14,6 @@ lint:
 
 in:
   pnpm install
+
+build:
+  pnpm build

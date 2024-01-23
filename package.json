@@ -1,5 +1,10 @@
 {
+  "name": "turborepo-design-library-template",
+  "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
