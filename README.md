@@ -163,8 +163,7 @@ To set up the deployment, follow these steps:
 
 1. In your repository, navigate to the **Settings** tab.
 2. Scroll down to the **GitHub Pages** section.
-3. Select the branch you want as the source for GitHub Pages (it is default to `main` branch in this repo).
-4. If you are targeting a different branch as the source, change the `depoly-storybook-to-gp` according.
+3. Select the Github Actions as the source for the Github Pages
 
 
 ### GitHub Action Workflow
