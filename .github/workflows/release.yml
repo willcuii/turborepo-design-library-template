@@ -1,4 +1,4 @@
-name: Create version packages PR or release
+name: Create version packages PR and release to Github packages
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Publish packages
         id: changesets
         uses: changesets/action@v1
         with:
