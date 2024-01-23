@@ -27,6 +27,8 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish packages
         id: changesets
