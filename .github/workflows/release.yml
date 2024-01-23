@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Publish packages
         id: changesets
@@ -38,7 +38,7 @@ jobs:
           publish: pnpm publish-packages
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # - name: Send a Slack notification if a publish happens
       #   if: steps.changesets.outputs.published == 'true'
