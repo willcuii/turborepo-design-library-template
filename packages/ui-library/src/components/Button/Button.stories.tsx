@@ -14,4 +14,11 @@ export const Primary: Story = {
     onClick: () => {},
     children: 'Button',
   },
+  // TODO
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
+    },
+  },
 };

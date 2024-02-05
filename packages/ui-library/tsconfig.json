@@ -6,9 +6,11 @@
   "include": [
     "./src",
     "./src/**/*.json",
+    "./src/**/**/*.json",
     "./tests",
+    "..storybook",
     ".storybook/**/*.ts",
-    ".storybook/**/*.tsx"
+    ".storybook/**/*.tsx",
   ],
-  "exclude": ["./src/components/**/*.stories.tsx"]
+  "exclude": ["./src/components/**/*.stories.tsx", "./src/components/**/*.stories.mdx"]
 }

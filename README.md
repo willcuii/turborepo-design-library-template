@@ -1,6 +1,7 @@
 # Turborepo Design Library Template
 
 This guide explains how to use a React design system template powered by:
+
 - 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
 - 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
 - 🛠 [Vite](https://vitejs.dev/) — Next Generation Frontend Tooling
@@ -8,7 +9,6 @@ This guide explains how to use a React design system template powered by:
 - 🐶 [Husky](https://typicode.github.io/husky/#/) — Git hooks made easy
 - 🛠 [Just](https://github.com/microsoft/just) — Task runner for project-specific commands
 - 📦 [pnpm](https://pnpm.io/) — Fast, disk space efficient package manager
-
 
 As well as a few others tools preconfigured:
 
@@ -156,7 +156,6 @@ This example includes a few helpful Storybook scripts:
 
 This project uses a GitHub Action to automatically deploy the built Storybook to GitHub Pages whenever changes are pushed to the main branch. This allows us to easily share and showcase your components and UI library, and collaborating with the designers.
 
-
 ### Configuration
 
 To set up the deployment, follow these steps:
@@ -165,11 +164,9 @@ To set up the deployment, follow these steps:
 2. Scroll down to the **GitHub Pages** section.
 3. Select the Github Actions as the source for the Github Pages
 
-
 ### GitHub Action Workflow
 
 The deployment is handled by a GitHub Action workflow defined in the `.github/workflows/deploy-storybook.yml` file. Here's an example of the workflow configuration:
-
 
 ## Versioning & Publishing Packages
 

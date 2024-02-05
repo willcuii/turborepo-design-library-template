@@ -22,14 +22,20 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.12",
+    "@storybook/addon-designs": "^7.0.9",
+    "@storybook/addon-docs": "^7.6.12",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.10",
     "@storybook/addon-links": "^7.6.7",
     "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/addon-themes": "^7.6.12",
     "@storybook/blocks": "^7.6.10",
+    "@storybook/manager-api": "^7.6.11",
     "@storybook/react": "^7.6.7",
     "@storybook/react-vite": "^7.6.7",
     "@storybook/test": "^7.6.10",
+    "@storybook/theming": "^7.6.11",
     "@tdlt/config-eslint": "*",
     "@tdlt/config-prettier": "*",
     "@tdlt/config-typescript": "*",
@@ -43,6 +49,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.6.15",
     "storybook": "^7.6.7",
+    "storybook-dark-mode": "^3.0.3",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   },
