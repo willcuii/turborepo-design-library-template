@@ -70,7 +70,7 @@ export const borderColors = {
   borderWarning: systemColors['system-o-300'],
 
   borderButtonDefault: neutralColors['system-n-700'],
-  borderButtonDisabled: textColors.textDisabled,
+  borderButtonDisabled: neutralColors['system-n-800'],
 };
 
 export const iconColors = {

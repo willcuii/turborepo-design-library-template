@@ -39,6 +39,7 @@
     "@tdlt/config-eslint": "*",
     "@tdlt/config-prettier": "*",
     "@tdlt/config-typescript": "*",
+    "@testing-library/react": "^14.2.1",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -51,7 +52,8 @@
     "storybook": "^7.6.7",
     "storybook-dark-mode": "^3.0.3",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vitest": "^1.2.2"
   },
   "publishConfig": {
     "access": "public"

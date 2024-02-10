@@ -1,18 +1,19 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import {Meta, StoryObj} from '@storybook/react';
+import Typography from './Typography';
 
-import Button from './Button';
-
-const meta: Meta<typeof Button> = {
-  component: Button,
+const meta: Meta<typeof Typography> = {
+  title: 'Components/Typography',
+  component: Typography,
 };
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+
+type Story = StoryObj<typeof Typography>;
 
 export const Primary: Story = {
   args: {
-    onClick: () => {},
-    children: 'Button',
+    tag: 'h1',
+    children: 'Typography',
   },
   // TODO
   parameters: {
