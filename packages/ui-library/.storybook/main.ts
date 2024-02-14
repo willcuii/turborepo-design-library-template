@@ -24,6 +24,7 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-designs'),
     getAbsolutePath('@storybook/addon-themes'),
     getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('storybook-addon-pseudo-states'),
     //getAbsolutePath('@storybook/addon-docs'),
   ],
   framework: {

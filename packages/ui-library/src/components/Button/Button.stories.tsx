@@ -17,18 +17,31 @@ const Row = styled.div`
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  max-width: 600px;
+  max-width: 700px;
 `;
 
 const Column = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 20px 100px 20px 0;
+  margin: 20px 30px 20px 0;
 `;
 
-const Title = styled.h4`
+const Title = styled.h5`
   margin-bottom: 10px;
+`;
+
+const ButtonStoryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+
+  li {
+    list-style: auto;
+  }
 `;
 
 export const Overview = () => {
@@ -40,13 +53,35 @@ export const Overview = () => {
   };
 
   const renderButton = (type: ButtonVariant) => (
-    <Column>
+    <Column style={{margin: 0}}>
       <h2>{capitalize(type)}</h2>
       {sizeMap.map((size) => (
         <Row>
           <Column>
             <Title>Default</Title>
             <Button btnVariant={type} btnSize={size} onClick={handleClick}>
+              Button
+            </Button>
+          </Column>
+          <Column>
+            <Title>Hovered</Title>
+            <Button
+              btnVariant={type}
+              btnSize={size}
+              onClick={handleClick}
+              id="btn-hovered"
+            >
+              Button
+            </Button>
+          </Column>
+          <Column>
+            <Title>Activated</Title>
+            <Button
+              btnVariant={type}
+              btnSize={size}
+              onClick={handleClick}
+              id="btn-activated"
+            >
               Button
             </Button>
           </Column>
@@ -67,19 +102,31 @@ export const Overview = () => {
   );
 
   return (
-    <div style={{padding: '20px 50px'}}>
-      <h1>Button Overview</h1>
+    <div style={{padding: '20px'}}>
+      <ButtonStoryContainer>
+        <h1>Button Overview</h1>
+        <li>Can contain an optional leading icon</li>
+        <li>Three types: gradient, outlined, and text</li>
+        <li>Keep labels concise and in sentence-case</li>
+        <li>
+          Containers have fully rounded corners and are wide enough to fit label
+          text
+        </li>
+      </ButtonStoryContainer>
       <br />
-      <li>Can contain an optional leading icon</li>
-      <li>Three types: gradient, outlined, and text</li>
-      <li>Keep labels concise and in sentence-case</li>
-      <li>
-        Containers have fully rounded corners and are wide enough to fit label
-        text
-      </li>
-      {typeMap.map((type) => renderButton(type))}
+      <ButtonStoryContainer>
+        {typeMap.map((type) => renderButton(type))}
+      </ButtonStoryContainer>
     </div>
   );
+};
+
+Overview.parameters = {
+  pseudo: {
+    hover: ['#btn-hovered'],
+    // focus: ["#two", "#three"],
+    active: ['#btn-activated'],
+  },
 };
 
 export const Primary: Story = {

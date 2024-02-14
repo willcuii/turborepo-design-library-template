@@ -25,7 +25,8 @@ export const StyledColorRow = styled.div`
 export const StyledParagraph = styled.p`
   flex: 1;
   max-width: 500px;
-  font-size: 18px;
+  font-size: 16px;
+  margin-left: 30px;
 `;
 
 export const StyledColorUnit = styled.div<{width?: string; bgcolor: string}>`
@@ -56,7 +57,7 @@ export const ColorUnitRow = styled.div`
 `;
 
 export const ColorBlock = styled.div<{bgColor: string}>`
-  width: 250px;
+  width: 200px;
   height: 150px;
   border-radius: 5px 5px 0 0;
   background-color: ${(props) => props.bgColor};
@@ -72,6 +73,7 @@ export const TokenName = styled.td`
 `;
 
 export const ColorBlockWrapper = styled.div`
+  width: 202px;
   margin: 20px 20px 20px 0;
   display: flex;
   justify-content: center;

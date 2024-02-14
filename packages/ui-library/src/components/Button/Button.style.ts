@@ -16,14 +16,8 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   border: '1px solid',
   lineHeight: 1.5,
   fontFamily: 'Lato, sans-serif',
-  '&:hover': {
+  '&:hover, &:active, &:focus': {
     boxShadow: 'none',
-  },
-  '&:active': {
-    boxShadow: 'none',
-  },
-  '&:focus': {
-    boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
   },
   // Primay Style
   ...(btnVariant === 'primary' && {
