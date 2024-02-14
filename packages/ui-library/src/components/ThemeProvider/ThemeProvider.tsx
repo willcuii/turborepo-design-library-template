@@ -1,10 +1,24 @@
 import React from 'react';
-import {ThemeProvider} from 'styled-components';
+import {Global} from '@emotion/react';
+import {ThemeProvider} from '@mui/material/styles';
 
-import {GlobalStyle} from './ThemeProvider.styles';
+import {globalStyles} from './ThemeProvider.styles';
 import {ThemeLight} from '../../tokens/themes/ThemeLight';
 import {ThemeDark} from '../../tokens/themes/ThemeDark';
 import {ThemeProviderProps} from './ThemeProvider.type';
+
+declare module '@mui/material/styles' {
+  interface Theme {
+    status: {
+      danger: string;
+    };
+  }
+  interface ThemeOptions {
+    status?: {
+      danger?: string;
+    };
+  }
+}
 
 const THEMES = [ThemeLight, ThemeDark];
 
@@ -14,12 +28,12 @@ const BaseThemeProvider = ({
   children,
 }: ThemeProviderProps) => {
   const currentTheme = THEMES.find(
-    (item) => item.name === (themeName || theme?.name),
+    (item) => item.palette.mode === (themeName || theme?.name),
   );
 
   return (
     <React.Fragment>
-      <GlobalStyle />
+      <Global styles={globalStyles} />
       <ThemeProvider theme={currentTheme || ThemeLight}>
         {children}
       </ThemeProvider>

@@ -1,133 +1,76 @@
 import React from 'react';
-import {ThemeDark} from '../../themes/ThemeDark';
-import {ThemeLight} from '../../themes/ThemeLight';
-import {
-  backgroundColors,
-  borderColors,
-  iconColors,
-  interactiveColors,
-  textColors,
-} from '../colorsOnWhite';
-import styled from 'styled-components';
+import {ColorsDark} from '../../themes/ThemeDark';
+import {ColorsLight} from '../../themes/ThemeLight';
+import {hex, score} from 'wcag-contrast';
 import {rgbToHex} from '../../../utils/colorUtils';
+import {
+  ColorBlock,
+  ColorBlockWrapper,
+  StyledPalletteContainer,
+  ColorUnitRow,
+  TokenName,
+  ColorBlockContent,
+  ColorContrastBlock,
+} from './Colors.styles';
+import {useDarkMode} from 'storybook-dark-mode';
+import {Divider} from '@mui/material';
 
-interface ColorTableProps {
-  title: string;
-  colors: Record<string, string>;
-  colorType: string;
-}
+const ColourList = ({colorType}: {colorType: string}) => {
+  const colors = useDarkMode() ? ColorsDark : ColorsLight;
+  const filteredColors = colors[colorType as keyof typeof colors];
 
-const ColorBlock = styled.div<{bgColor: string; showBoarder?: boolean}>`
-  width: 100%;
-  height: 150px;
-  border-radius: 10px;
-  border: ${(props) => (props.showBoarder ? '1px solid #f1f1f1' : '0')};
-  background-color: ${(props) => props.bgColor};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 16px;
-`;
+  const list = Object.entries(filteredColors).map((color) => {
+    const colorName = color[0];
+    const colorValue = rgbToHex(color[1]);
 
-const TokenName = styled.td`
-  width: 300px;
-  font-size: 18px;
-`;
-
-const ColorCell = styled.td<{theme: 'light' | 'dark'}>`
-  width: 500px;
-  padding: 20px;
-  background-color: ${(props) =>
-    props.theme === 'light'
-      ? ThemeLight.colors.background.bgOnBase
-      : ThemeDark.colors.background.bgOnBase};
-`;
-
-const ColorRow: React.FC<{name: string; colors: string}> = ({name, colors}) => {
-  const light: typeof ThemeLight.colors & {
-    [key: string]: Record<string, string>;
-  } = ThemeLight.colors;
-  const dark: typeof ThemeDark.colors & {
-    [key: string]: Record<string, string>;
-  } = ThemeDark.colors;
-
-  const lightColor = light[colors][name] as string;
-  const darkColor = dark[colors][name] as string;
-
-  const ColorText = ({color, text}: {color: string; text: string}) => (
-    <p
-      style={{
-        color,
-        filter: 'invert(1) grayscale(1) contrast(100)',
-      }}
-    >
-      {text}
-    </p>
-  );
-
-  return (
-    <tr>
-      <TokenName>{name}</TokenName>
-      <ColorCell theme={'light'}>
-        <ColorBlock bgColor={lightColor} showBoarder>
-          <ColorText color={lightColor} text={rgbToHex(lightColor)} />
-          <ColorText color={lightColor} text={lightColor} />
+    return (
+      <ColorBlockWrapper>
+        <ColorBlock bgColor={colorValue}>
+          <ColorContrastBlock mode="dark">
+            <span>A</span>
+            <div>{score(hex(colorValue, '#000000'))}</div>
+          </ColorContrastBlock>
+          <ColorContrastBlock mode="light">
+            <span>A</span>
+            <div>{score(hex(colorValue, '#FFFFFF'))}</div>
+          </ColorContrastBlock>
         </ColorBlock>
-      </ColorCell>
-      <ColorCell theme={'dark'}>
-        <ColorBlock bgColor={darkColor}>
-          <ColorText color={darkColor} text={rgbToHex(darkColor)} />
-          <ColorText color={darkColor} text={darkColor} />
-        </ColorBlock>
-      </ColorCell>
-    </tr>
-  );
-};
+        <ColorBlockContent>
+          <h4>{colorName}</h4>
+          <TokenName>{colorValue}</TokenName>
+        </ColorBlockContent>
+      </ColorBlockWrapper>
+    );
+  });
 
-const ColorTable: React.FC<ColorTableProps> = ({title, colors, colorType}) => {
-  return (
-    <>
-      <h2>{title}</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Token Name</th>
-            <th>Light Theme</th>
-            <th>Dark Theme</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(colors).map((key) => {
-            return <ColorRow name={key} colors={colorType} />;
-          })}
-        </tbody>
-      </table>
-    </>
-  );
+  return <ColorUnitRow>{list}</ColorUnitRow>;
 };
 
 const UIColors: React.FC = () => {
   return (
-    <div>
-      <ColorTable
-        title="Interactive"
-        colors={interactiveColors}
-        colorType="interactive"
-      />
+    <StyledPalletteContainer>
+      <h1>UI Colors</h1>
 
-      <ColorTable title="Text" colors={textColors} colorType="text" />
+      <h3>Interactive</h3>
+      <Divider />
+      <ColourList colorType="interactive" />
 
-      <ColorTable title="Icon" colors={iconColors} colorType="icon" />
+      <h3>Text</h3>
+      <Divider />
+      <ColourList colorType="text" />
 
-      <ColorTable
-        title="Background"
-        colors={backgroundColors}
-        colorType="background"
-      />
+      <h3>Icon</h3>
+      <Divider />
+      <ColourList colorType="icon" />
 
-      <ColorTable title="Border" colors={borderColors} colorType="border" />
-    </div>
+      <h3>Background</h3>
+      <Divider />
+      <ColourList colorType="background" />
+
+      <h3>Border</h3>
+      <Divider />
+      <ColourList colorType="border" />
+    </StyledPalletteContainer>
   );
 };
 

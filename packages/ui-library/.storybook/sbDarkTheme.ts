@@ -1,5 +1,11 @@
 import {create} from '@storybook/theming/create';
 import {ThemeDark} from '../src/tokens/themes/ThemeDark';
+import {
+  backgroundColors,
+  borderColors,
+  interactiveColors,
+  textColors,
+} from '@/tokens/colors/colorsOnDark';
 
 export default create({
   base: 'dark',
@@ -13,28 +19,28 @@ export default create({
   brandTarget: '_self',
 
   // Colors
-  colorPrimary: ThemeDark.colors.interactive.primaryContainer,
-  colorSecondary: ThemeDark.colors.interactive.secondaryContainer,
+  colorPrimary: interactiveColors.primary,
+  colorSecondary: interactiveColors.secondary,
 
   // UI
-  appBg: ThemeDark.colors.background.bgBase,
-  appContentBg: ThemeDark.colors.background.bgBase,
-  appPreviewBg: ThemeDark.colors.background.bgBase,
-  appBorderColor: ThemeDark.colors.border.borderDefault,
+  appBg: backgroundColors.bgBase,
+  appContentBg: backgroundColors.bgBase,
+  appPreviewBg: backgroundColors.bgBase,
+  appBorderColor: borderColors.borderDefault,
   appBorderRadius: 3,
 
   // Text colors
-  textColor: ThemeDark.colors.text.textDefault,
+  textColor: textColors.textDefault,
   textInverseColor: '#ffffff',
 
   // Toolbar default and active colors
-  barTextColor: ThemeDark.colors.text.textDefault,
-  barSelectedColor: ThemeDark.colors.text.textSuccessStrong,
-  barBg: ThemeDark.colors.background.bgBase,
+  barTextColor: textColors.textDefault,
+  barSelectedColor: textColors.textSuccessStrong,
+  barBg: backgroundColors.bgBase,
 
   // Form colors
-  inputBg: ThemeDark.colors.background.bgBase,
-  inputBorder: ThemeDark.colors.border.borderDefault,
-  inputTextColor: ThemeDark.colors.text.textDefault,
+  inputBg: backgroundColors.bgBase,
+  inputBorder: borderColors.borderDefault,
+  inputTextColor: textColors.textDefault,
   inputBorderRadius: 3,
 });

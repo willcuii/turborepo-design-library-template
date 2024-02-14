@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {ThemeLight} from '../../themes/ThemeLight';
+import {borderColors} from '@/tokens/colors/colorsOnWhite';
 
 export const StyledSpacingContainer = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const StyledHeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: ${ThemeLight.colors.background.bgOnBaseInset};
+  background-color: ${ThemeLight.palette.background.default};
 `;
 
 export const StyledRowContainer = styled.div`
@@ -22,7 +23,7 @@ export const StyledRowContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 10px;
-  border-bottom: 0.5px solid ${ThemeLight.colors.border.borderDefault};
+  border-bottom: 0.5px solid ${borderColors.borderDefault};
 `;
 
 export const StyledRowItems = styled.div<{flex: number}>`
@@ -37,5 +38,5 @@ export const StyledSpacingItem = styled.div<{spacing: string}>`
   height: 15px;
   border-radius: 20px;
   width: ${(props) => props.spacing};
-  background-color: ${ThemeLight.colors.interactive.primary};
+  background-color: ${ThemeLight.palette.primary.main};
 `;

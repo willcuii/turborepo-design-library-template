@@ -1,5 +1,10 @@
 import {create} from '@storybook/theming/create';
-import {ThemeLight} from '../src/tokens/themes/ThemeLight';
+import {
+  backgroundColors,
+  borderColors,
+  interactiveColors,
+  textColors,
+} from '@/tokens/colors/colorsOnWhite';
 
 export default create({
   base: 'light',
@@ -14,28 +19,28 @@ export default create({
   brandTarget: '_self',
 
   // Colors
-  colorPrimary: ThemeLight.colors.interactive.primary,
-  colorSecondary: ThemeLight.colors.interactive.secondary,
+  colorPrimary: interactiveColors.primary,
+  colorSecondary: interactiveColors.secondary,
 
   // UI
-  appBg: ThemeLight.colors.background.bgBase,
-  appContentBg: ThemeLight.colors.background.bgBase,
-  appPreviewBg: ThemeLight.colors.background.bgBase,
-  appBorderColor: ThemeLight.colors.border.borderDefault,
+  appBg: backgroundColors.bgBase,
+  appContentBg: backgroundColors.bgBase,
+  appPreviewBg: backgroundColors.bgBase,
+  appBorderColor: borderColors.borderDefault,
   appBorderRadius: 3,
 
   // Text colors
-  textColor: ThemeLight.colors.text.textDefault,
+  textColor: textColors.textDefault,
   textInverseColor: '#ffffff',
 
   // Toolbar default and active colors
-  barTextColor: ThemeLight.colors.text.textDefault,
-  barSelectedColor: ThemeLight.colors.text.textSuccessStrong,
-  barBg: ThemeLight.colors.background.bgBase,
+  barTextColor: textColors.textDefault,
+  barSelectedColor: textColors.textSuccessStrong,
+  barBg: backgroundColors.bgBase,
 
   // Form colors
-  inputBg: ThemeLight.colors.background.bgBase,
-  inputBorder: ThemeLight.colors.border.borderDefault,
-  inputTextColor: ThemeLight.colors.text.textDefault,
+  inputBg: backgroundColors.bgBase,
+  inputBorder: borderColors.borderDefault,
+  inputTextColor: textColors.textDefault,
   inputBorderRadius: 3,
 });
