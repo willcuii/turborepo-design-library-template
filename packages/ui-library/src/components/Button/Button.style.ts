@@ -13,7 +13,7 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   textTransform: 'none',
   fontSize: 16,
   fontWeight: 600,
-  lineHeight: 1,
+  lineHeight: 0.8,
   fontFamily: 'sofia-pro, sans-serif',
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',

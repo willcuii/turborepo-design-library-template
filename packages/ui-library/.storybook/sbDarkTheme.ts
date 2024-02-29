@@ -15,7 +15,7 @@ export default create({
 
   brandTitle: 'Prenuvo Halo UI Library',
   brandUrl: 'https://prenuvo.com',
-  brandImage: '../public/logo-white.svg',
+  brandImage: '../public/halo_logo_white.png',
   brandTarget: '_self',
 
   // Colors

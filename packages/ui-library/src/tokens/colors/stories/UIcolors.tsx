@@ -36,7 +36,7 @@ const ColourList = ({colorType}: {colorType: string}) => {
           </ColorContrastBlock>
         </ColorBlock>
         <ColorBlockContent>
-          <h4>{colorName}</h4>
+          <h5>{colorName}</h5>
           <TokenName>{colorValue}</TokenName>
         </ColorBlockContent>
       </ColorBlockWrapper>

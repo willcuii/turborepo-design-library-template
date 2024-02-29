@@ -14,8 +14,7 @@ export default create({
 
   brandTitle: 'Prenuvo Halo UI Library',
   brandUrl: 'https://prenuvo.com',
-  brandImage:
-    'https://cdn.cookielaw.org/logos/0729f7e6-4f65-441c-9882-d3130a57f1e5/9ef970c8-d63c-49dc-bc9d-a9875ccefdd9/65019853-e900-4e6b-8f5d-54f785de1afc/01-Wordmark-RGB-M_(1).png',
+  brandImage: '../public/halo_logo_teal.png',
   brandTarget: '_self',
 
   // Colors
