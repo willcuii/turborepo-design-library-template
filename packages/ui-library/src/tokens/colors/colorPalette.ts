@@ -109,6 +109,7 @@ export const systemColors = {
 
 export const gradientColors = {
   Summer: 'linear-gradient(136.97deg, #4FE88C 0%, #00A5EB 100%)',
+  Summer2: 'linear-gradient(98.24deg, #0CC778 9.87%, #0078CF 96.42%)',
   Floral: 'linear-gradient(135deg, #C686F8 0%, #FF6A97 100%)',
   Spring: 'linear-gradient(136.97deg, #FFEA29 0%, #4FE88C 100%)',
   Ocean: 'linear-gradient(135deg, #FFF629 0%, #00A5EB 100%)',

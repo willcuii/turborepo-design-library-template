@@ -1,8 +1,8 @@
 import {styled} from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import {ButtonProps} from './Button.type';
-import {backgroundColors} from '@/tokens/colors/colorsOnWhite';
-import {gradientColors} from '@/tokens/colors/colorPalette';
+import {backgroundColors} from '../../tokens/colors/colorsOnWhite';
+import {gradientColors} from '../../tokens/colors/colorPalette';
 
 const StyledButton: React.ComponentType<ButtonProps> = styled(
   Button,
@@ -13,9 +13,8 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   textTransform: 'none',
   fontSize: 16,
   fontWeight: 600,
-  border: '1px solid',
-  lineHeight: 1.5,
-  fontFamily: 'Lato, sans-serif',
+  lineHeight: 1,
+  fontFamily: 'sofia-pro, sans-serif',
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
   },
@@ -42,6 +41,7 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   }),
   // Outlined Style
   ...(btnVariant === 'outlined' && {
+    border: '1px solid',
     backgroundColor: theme.palette.common.white,
     borderColor: theme.palette.grey[300],
     color: theme.palette.text.primary,
@@ -97,8 +97,8 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
         position: 'absolute',
         inset: '0',
         borderRadius: '50px',
-        padding: '3px' /* control the border thickness */,
-        background: gradientColors.Summer,
+        padding: '2px' /* control the border thickness */,
+        background: gradientColors.Summer2,
         '-webkit-mask':
           'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
         '-webkit-mask-composite': 'xor',
@@ -115,12 +115,12 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
           right: 0,
           bottom: 0,
           left: 0,
-          background: gradientColors.Summer,
+          borderRadius: '50px',
+          background: gradientColors.Summer2,
           transform: 'translate3d(0px, 0px, 0) scale(0.97)',
           filter: 'blur(10px)',
           opacity: 0.7,
           transition: 'opacity 0.3s',
-          borderRadius: 'inherit',
         },
         '.gradient-bg::after': {
           content: "''",
@@ -136,7 +136,7 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
       },
       '&:active': {
         color: theme.palette.common.white,
-        background: gradientColors.Summer,
+        background: gradientColors.Summer2,
       },
     }),
     '&:disabled': {
@@ -151,18 +151,22 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   ...(btnSize === 'xsmall' && {
     height: 32,
     padding: '6px 12px',
+    fontSize: 14,
   }),
   ...(btnSize === 'small' && {
     height: 40,
     padding: '6px 16px',
+    fontSize: 14,
   }),
   ...(btnSize === 'medium' && {
     height: 48,
     padding: '8px 24px',
+    fontSize: 16,
   }),
   ...(btnSize === 'large' && {
     height: 56,
     padding: '12px 36px',
+    fontSize: 16,
   }),
 }));
 

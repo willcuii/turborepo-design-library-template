@@ -10,26 +10,31 @@ function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 const config: StorybookConfig = {
+  framework: '@storybook/react-vite',
   stories: [
     '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|mjs|mdx|ts|tsx)',
-    '../src/**/**/*.stories.@(js|jsx|mjs|mdx|ts|tsx)',
+    '../src/**/stories/index.stories.@(js|jsx|mjs|mdx|ts|tsx)',
+    //'../src/**/**/*.stories.@(js|jsx|mjs|mdx|ts|tsx)',
   ],
   addons: [
-    getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-onboarding'),
-    getAbsolutePath('@storybook/addon-interactions'),
-    getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-designs'),
-    getAbsolutePath('@storybook/addon-themes'),
-    getAbsolutePath('storybook-dark-mode'),
-    getAbsolutePath('storybook-addon-pseudo-states'),
-    //getAbsolutePath('@storybook/addon-docs'),
+    '@storybook/addon-docs',
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
+    '@storybook/addon-a11y',
+    '@storybook/addon-designs',
+    '@storybook/addon-themes',
+    'storybook-dark-mode',
+    'storybook-addon-react-docgen',
   ],
-  framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
-    options: {},
+  async viteFinal(config, options) {
+    config.assetsInclude = ['**/*.md', '/sb-preview/runtime.js'];
+    return config;
+  },
+  typescript: {
+    check: true,
+    reactDocgen: 'react-docgen-typescript',
   },
   docs: {
     autodocs: 'tag',

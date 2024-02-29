@@ -1,4 +1,4 @@
-import type {Preview, ReactRenderer} from '@storybook/react';
+import {Preview} from '@storybook/react';
 import {useDarkMode} from 'storybook-dark-mode';
 import ThemeProvider from '../src/components/ThemeProvider/ThemeProvider';
 

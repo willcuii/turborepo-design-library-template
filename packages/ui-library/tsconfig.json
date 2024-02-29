@@ -18,5 +18,5 @@
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
   ],
-  "exclude": ["./src/components/**/*.stories.tsx", "./src/components/**/*.stories.mdx"]
+  "exclude": ["./src/components/**/*.stories.tsx", "./src/components/**/**/*.stories.mdx", "./src/components/**/**/*.md"]
 }
