@@ -13,7 +13,8 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   textTransform: 'none',
   fontSize: 16,
   fontWeight: 600,
-  lineHeight: 0.8,
+  lineHeight: 1,
+  paddingTop: '5px!important',
   fontFamily: 'sofia-pro, sans-serif',
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
@@ -42,7 +43,7 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   // Outlined Style
   ...(btnVariant === 'outlined' && {
     border: '1px solid',
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.background.default,
     borderColor: theme.palette.grey[300],
     color: theme.palette.text.primary,
     '&:hover': {
@@ -66,20 +67,20 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
   }),
   // Text Style
   ...(btnVariant === 'text' && {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.background.default,
     borderColor: theme.palette.common.white,
     color: theme.palette.text.primary,
     '&:hover': {
-      backgroundColor: theme.palette.grey[50],
-      borderColor: theme.palette.grey[50],
+      backgroundColor: theme.palette.action.hover,
+      borderColor: 'none',
     },
     '&:active': {
       backgroundColor: theme.palette.action.active,
-      borderColor: theme.palette.action.active,
+      borderColor: 'none',
     },
     '&:disabled': {
       backgroundColor: theme.palette.common.white,
-      borderColor: theme.palette.common.white,
+      borderColor: 'none',
       color: theme.palette.text.disabled,
       cursor: 'not-allowed',
       pointerEvents: 'auto',
@@ -90,7 +91,7 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
     position: 'relative',
     border: 'none',
     color: theme.palette.text.primary,
-    background: theme.palette.common.white,
+    background: theme.palette.background.default,
     ...(!disabled && {
       '&::before': {
         content: "''",
@@ -106,7 +107,7 @@ const StyledButton: React.ComponentType<ButtonProps> = styled(
         'pointer-events': 'none',
       },
       '&:hover': {
-        background: theme.palette.common.white,
+        background: theme.palette.background.default,
         '.gradient-bg::before': {
           content: "''",
           zIndex: -1,

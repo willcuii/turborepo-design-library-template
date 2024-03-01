@@ -31,11 +31,19 @@ export const ColorsDark = {
 export const ThemeDark = createTheme({
   palette: {
     mode: 'dark',
+    common: {
+      black: neutralColors['system-black'],
+      white: neutralColors['system-white'],
+    },
     primary: {
       main: interactiveColors.primary,
+      light: interactiveColors.primaryHover,
+      dark: interactiveColors.onPrimaryContainer,
+      contrastText: interactiveColors.onPrimary,
     },
     secondary: {
       main: interactiveColors.secondary,
+      light: interactiveColors.primaryContainer,
     },
     error: {
       main: textColors.textError,
@@ -59,6 +67,7 @@ export const ThemeDark = createTheme({
       paper: backgroundColors.bgBase,
     },
     action: {
+      hover: interactiveColors.secondaryHover,
       active: interactiveColors.onFocusOverlay,
     },
     grey: {

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Button from '..';
 import type {ButtonVariant} from '../Button.type';
 import styled from '@emotion/styled';
+import {capitalize} from '@mui/material';
 
 const Row = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ export const ButtonDisabled = () => {
       {variant.map((variant) => (
         <Column>
           <Button disabled btnVariant={variant as ButtonVariant}>
-            {variant} disabled
+            {capitalize(variant)} disabled
           </Button>
         </Column>
       ))}

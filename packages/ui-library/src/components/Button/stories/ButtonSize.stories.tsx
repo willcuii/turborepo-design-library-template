@@ -2,6 +2,7 @@ import * as React from 'react';
 import Button from '..';
 import type {ButtonSize, ButtonVariant} from '../Button.type';
 import styled from '@emotion/styled';
+import {capitalize} from '@mui/material';
 
 const Row = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ export const ButtonSizes = () => {
             btnSize={size as ButtonSize}
             btnVariant={variant as ButtonVariant}
           >
-            {size} {variant}
+            {capitalize(size)} {variant}
           </Button>
         </Column>
       ))}

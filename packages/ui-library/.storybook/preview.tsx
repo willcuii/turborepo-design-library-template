@@ -30,10 +30,7 @@ const preview: Preview = {
       darkClass: 'dark',
       lightClass: 'light',
       classTarget: 'html',
-      dark: {
-        ...ThemeDark,
-        ...sbDarkTheme,
-      },
+      dark: {...ThemeDark, ...sbDarkTheme},
       light: {...ThemeLight, ...sbLightTheme},
     },
   },

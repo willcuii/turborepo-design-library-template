@@ -1,5 +1,4 @@
 import {create} from '@storybook/theming/create';
-import {ThemeDark} from '../src/tokens/themes/ThemeDark';
 import {
   backgroundColors,
   borderColors,
