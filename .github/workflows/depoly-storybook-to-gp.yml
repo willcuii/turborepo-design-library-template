@@ -28,6 +28,10 @@ jobs:
         with:
           version: 8
 
+      - uses: extractions/setup-just@v1
+        with:
+          just-version: '1.23.0'
+
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
