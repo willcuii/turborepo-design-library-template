@@ -14,7 +14,8 @@ export default create({
 
   brandTitle: 'Prenuvo Halo UI Library',
   brandUrl: 'https://prenuvo.com',
-  brandImage: '../public/halo_logo_teal.png',
+  brandImage:
+    'https://raw.githubusercontent.com/willcuii/turborepo-design-library-template/main/packages/ui-library/public/halo_logo_teal.png',
   brandTarget: '_self',
 
   // Colors
