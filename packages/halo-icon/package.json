@@ -37,7 +37,6 @@
     "./dist/svg/*.svg": "./dist/svg/*.svg"
   },
   "publishConfig": {
-    "access": "restricted",
     "@willcuii:registry": "https://npm.pkg.github.com"
   },
   "files": [
