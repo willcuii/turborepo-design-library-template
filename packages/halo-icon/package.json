@@ -1,6 +1,6 @@
 {
   "name": "@willcuii/halo-icon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Prenuvo Inc.",
   "description": "SVG Icon Library packages",
   "main": "dist/index.js",
@@ -37,6 +37,7 @@
     "./dist/svg/*.svg": "./dist/svg/*.svg"
   },
   "publishConfig": {
+    "access": "public",
     "@willcuii:registry": "https://npm.pkg.github.com"
   },
   "files": [
