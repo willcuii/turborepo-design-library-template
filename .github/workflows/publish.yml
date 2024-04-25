@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://npm.pkg.github.com
           cache: "pnpm"
 
       - name: Install Dependencies
@@ -35,6 +35,7 @@ jobs:
         with:
           publish: pnpm run release
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Send a Slack notification if a publish happens
