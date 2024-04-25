@@ -1,6 +1,6 @@
 {
   "name": "@willcuii/halo-icon",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "author": "Prenuvo Inc.",
   "description": "SVG Icon Library packages",
   "main": "dist/index.js",
