@@ -46,11 +46,7 @@
   "sideEffects": [
     "*.svg"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
-    "directory": "packages/halo-icons"
-  },
+  "repository": "https://github.com/willcuii/turborepo-design-library-template",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/node": "^7.20.7",

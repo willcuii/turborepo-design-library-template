@@ -29,9 +29,5 @@
   "publishConfig": {
     "@willcuii:registry": "https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
-    "directory": "packages/halo-web"
-  }
+  "repository": "https://github.com/willcuii/turborepo-design-library-template"
 }
