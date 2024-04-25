@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "author": "Prenuvo Inc.",
   "description": "SVG Icon Library packages",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -14,7 +17,7 @@
     }
   },
   "engines": {
-    "node": ">=20.10.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "build": "rollup -c",
@@ -40,13 +43,14 @@
     "access": "public",
     "@willcuii:registry": "https://npm.pkg.github.com"
   },
-  "files": [
-    "dist/*"
-  ],
   "sideEffects": [
     "*.svg"
   ],
-  "repository": "https://github.com/willcuii/turborepo-design-library-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
+    "directory": "packages/halo-icon"
+  },
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/node": "^7.20.7",
