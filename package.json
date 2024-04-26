@@ -7,14 +7,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:release": "turbo run build --filter=docs^...",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "publish-packages": "pnpm run build:release && changeset publish",
+    "publish-packages": "pnpm run build && changeset publish",
     "prepare": "husky install",
     "build-storybook": "cd packages/ui-library && pnpm run build-storybook",
     "preview-build-storybook": "pnpm dlx http-server ./dist/storybook-static"
