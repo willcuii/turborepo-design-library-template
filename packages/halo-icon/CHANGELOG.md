@@ -1,5 +1,11 @@
 # @willcuii/halo-icon
 
+## 0.0.5
+
+### Patch Changes
+
+- 39f03ad: fix build
+
 ## 0.0.4
 
 ### Patch Changes
