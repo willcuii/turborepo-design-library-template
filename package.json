@@ -19,10 +19,26 @@
     "preview-build-storybook": "pnpm dlx http-server ./dist/storybook-static"
   },
   "devDependencies": {
+    "@auto-it/all-contributors": "^11.1.6",
+    "@auto-it/jira": "^11.1.6",
+    "@auto-it/npm": "^11.1.6",
+    "@auto-it/slack": "^11.1.6",
     "@changesets/cli": "^2.27.1",
+    "auto": "^11.1.6",
+    "husky": "^8.0.0",
     "prettier": "^3.1.1",
-    "turbo": "latest",
-    "husky": "^8.0.0"
+    "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0"
+  "packageManager": "pnpm@8.9.0",
+  "repository": "willcuii/turborepo-design-library-template",
+  "author": "willcuii <william.cui@prenuvo.com>",
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "jira",
+      "slack"
+    ],
+    "onlyPublishWithReleaseLabel": true
+  }
 }
