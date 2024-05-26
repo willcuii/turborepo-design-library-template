@@ -14,7 +14,7 @@
     "version-packages": "changeset version && node ./scripts/changelog-config.js",
     "publish-packages": "pnpm run build && changeset publish",
     "prepare": "husky install",
-    "build-storybook": "cd packages/ui-library && pnpm run build-storybook",
+    "build-storybook": "cd packages/halo-web && pnpm run build-storybook",
     "preview-build-storybook": "pnpm dlx http-server ./dist/storybook-static"
   },
   "devDependencies": {
