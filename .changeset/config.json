@@ -1,11 +1,11 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
-  "changelog": "./changelog-config.js",
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "willcuii/turborepo-design-library-template" }],
   "commit": false,
   "fixed": [],
   "linked": [],
   "access": "public",
   "updateInternalDependencies": "patch",
   "ignore": [],
-  "baseBranch": "main"
+  "baseBranch": "publish"
 }
