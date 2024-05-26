@@ -1,5 +1,11 @@
 # @willcuii/halo-icon
 
+## 0.0.7
+
+### Patch Changes
+
+- c49a65b40161118bbbfcc8f6a08b09f7a00ed31b: test release notes
+
 ## 0.0.6
 
 ### Patch Changes
