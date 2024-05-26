@@ -1,5 +1,11 @@
 # @willcuii/halo-icon
 
+## 0.0.6
+
+### Patch Changes
+
+- Test Changeset config with patch changes
+
 ## 0.0.5
 
 ### Patch Changes
