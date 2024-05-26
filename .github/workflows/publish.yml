@@ -2,7 +2,7 @@ name: Create version packages PR or Publish to Github packages
 on:
   push:
     branches:
-      - publish
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
