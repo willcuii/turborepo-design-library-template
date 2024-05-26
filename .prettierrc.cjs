@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('@tdlt/config-prettier'),
+  ...require("@frontrunner/prettier-config"),
 };

@@ -1,23 +1,16 @@
-sb:
-  pnpm storybook
+sb: pnpm storybook
 
-test-sb:
-  pnpm run test-storybook
+test-sb: pnpm run test-storybook
 
-build-sb:
-  pnpm build-storybook
+build-sb: pnpm build-storybook
   pnpm preview-build-storybook
 
-lint:
-  pnpm lint
+lint: pnpm lint
   pnpm format
 
-in:
-  pnpm install
+in: pnpm install
 
-build:
-  pnpm build
+build: pnpm build
 
-release:
-  pnpm version-packages
+release: pnpm version-packages
   pnpm publish-packages
