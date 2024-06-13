@@ -1,3 +1,3 @@
 module.exports = {
-  ...require("@frontrunner/prettier-config"),
+  ...require("@willcuii/prettier-config"),
 };

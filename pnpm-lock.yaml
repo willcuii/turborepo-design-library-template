@@ -175,9 +175,6 @@ importers:
 
   packages/halo-web:
     devDependencies:
-      '@frontrunner/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
       '@types/react':
         specifier: ^18.2.61
         version: 18.2.61
@@ -187,6 +184,9 @@ importers:
       '@willcuii/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@willcuii/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       eslint:
         specifier: ^8.57.0
         version: 8.57.0

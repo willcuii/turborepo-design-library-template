@@ -1,6 +1,18 @@
 {
-  "name": "@frontrunner/prettier-config",
+  "name": "@willcuii/prettier-config",
   "version": "0.0.0",
   "private": true,
-  "main": "index.js"
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "@prenuvo:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
+    "directory": "packages/eslint-config"
+  }
 }

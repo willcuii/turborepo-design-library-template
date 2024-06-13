@@ -1,9 +1,21 @@
 {
-  "name": "@frontrunner/typescript-config",
+  "name": "@willcuii/typescript-config",
   "version": "0.0.0",
-  "private": true,
   "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "base.json",
+    "react-app.json",
+    "react-library.json"
+  ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "@prenuvo:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
+    "directory": "packages/eslint-config"
   }
 }
