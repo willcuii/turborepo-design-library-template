@@ -3,9 +3,8 @@
   "version": "0.2.0",
   "author": "Prenuvo Inc.",
   "description": "Shared ESLint configuration for Prenuvo FE projects",
-  "main": "dist/index.js",
+  "main": "index.js",
   "files": [
-    "dist",
     "index.js",
     "library.js",
     "react.js",
@@ -37,14 +36,6 @@
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-unused-imports": "^3.2.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^21.1.0",
-    "@rollup/plugin-node-resolve": "13.0.6",
-    "rollup": "^2.79.1"
-  },
   "publishConfig": {
     "access": "public",
     "@prenuvo:registry": "https://npm.pkg.github.com"
@@ -53,9 +44,5 @@
     "type": "git",
     "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
     "directory": "packages/eslint-config"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "clean": "rm -rf .turbo node_modules dist"
   }
 }
