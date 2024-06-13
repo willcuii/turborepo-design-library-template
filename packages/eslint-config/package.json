@@ -31,7 +31,10 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-tailwindcss": "^3.17.3",
     "eslint-plugin-testing-library": "^6.2.2",
-    "eslint-plugin-unused-imports": "^3.2.0"
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "@stylistic/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "7.7.0",
+    "@typescript-eslint/parser": "7.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
@@ -39,9 +42,6 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-node-resolve": "13.0.6",
-    "@stylistic/eslint-plugin": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "7.7.0",
-    "@typescript-eslint/parser": "7.9.0",
     "rollup": "^2.79.1"
   },
   "publishConfig": {
