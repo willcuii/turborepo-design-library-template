@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "Prenuvo Inc.",
   "description": "Shared ESLint configuration for Prenuvo FE projects",
+  "main": "index.js",
   "files": [
     "library.js",
     "react.js",
@@ -46,7 +47,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willcuii/turborepo-design-library-template.git",
-    "directory": "packages/halo-icon"
+    "directory": "packages/eslint-config"
   },
   "scripts": {
     "build": "rollup -c",
