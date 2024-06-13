@@ -1,6 +1,6 @@
-const { resolve } = require("node:path");
+const { resolve } = require('node:path');
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const project = resolve(process.cwd(), 'tsconfig.json');
 
 /*
  * This is a custom ESLint configuration for use with
@@ -9,25 +9,24 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["plugin:storybook/recommended", "plugin:mdx/recommended"],
+  extends: ['plugin:storybook/recommended', 'plugin:mdx/recommended'],
   parserOptions: {
     project,
   },
-  plugins: ["only-warn"],
   globals: {
     React: true,
     JSX: true,
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
         project,
       },
     },
   },
-  ignorePatterns: ["node_modules/", "dist/"],
+  ignorePatterns: ['node_modules/', 'dist/'],
   // add rules configurations here
   rules: {
-    "import/no-default-export": "off",
+    'import/no-default-export': 'off',
   },
 };

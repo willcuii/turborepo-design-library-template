@@ -9,6 +9,7 @@
     "index.js",
     "library.js",
     "react.js",
+    "rules.js",
     "storybook.js",
     "tailwind.js",
     "testing-library.js"
@@ -17,6 +18,9 @@
     "eslint": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "dependencies": {
+    "@stylistic/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "7.7.0",
+    "@typescript-eslint/parser": "7.9.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",
@@ -31,10 +35,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-tailwindcss": "^3.17.3",
     "eslint-plugin-testing-library": "^6.2.2",
-    "eslint-plugin-unused-imports": "^3.2.0",
-    "@stylistic/eslint-plugin": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "7.7.0",
-    "@typescript-eslint/parser": "7.9.0"
+    "eslint-plugin-unused-imports": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

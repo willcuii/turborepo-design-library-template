@@ -1,14 +1,8 @@
-const { resolve } = require("node:path");
+const { resolve } = require('node:path');
 
-const {
-  INTERNAL_RULES,
-  IMPORT_RULES,
-  PERFECTIONIST_RULES,
-  SIMPLE_IMPORT_SORT_RULES,
-  UNUSED_IMPORTS_RULES,
-} = require("./constants");
+const { rules } = require('./rules');
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const project = resolve(process.cwd(), 'tsconfig.json');
 
 /*
  * This is a custom ESLint configuration for use with
@@ -18,40 +12,42 @@ const project = resolve(process.cwd(), "tsconfig.json");
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: [
-    "airbnb",
-    "airbnb-typescript",
-    "prettier",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
   parserOptions: {
     project,
   },
   plugins: [
-    "only-warn",
-    "@stylistic",
-    "import",
-    "unused-imports",
-    "simple-import-sort",
-    "perfectionist",
+    '@stylistic',
+    '@typescript-eslint',
+    'import',
+    'unused-imports',
+    'simple-import-sort',
+    'perfectionist',
   ],
   globals: {
     React: true,
     JSX: true,
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
         project,
       },
     },
   },
-  ignorePatterns: ["node_modules/", "dist/"],
+  ignorePatterns: ['node_modules/', 'dist/'],
   rules: {
-    ...INTERNAL_RULES,
-    ...IMPORT_RULES,
-    ...PERFECTIONIST_RULES,
-    ...SIMPLE_IMPORT_SORT_RULES,
-    ...UNUSED_IMPORTS_RULES,
+    ...rules.base,
+    ...rules.import,
+    ...rules.perfectionist,
+    ...rules['simple-import-sort'],
+    ...rules.stylistic,
+    ...rules['unused-imports'],
   },
 };
