@@ -5,6 +5,8 @@
   "description": "Shared ESLint configuration for Prenuvo FE projects",
   "main": "index.js",
   "files": [
+    "dist",
+    "index.js",
     "library.js",
     "react.js",
     "storybook.js",
