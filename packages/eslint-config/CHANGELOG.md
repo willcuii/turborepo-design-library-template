@@ -1,5 +1,11 @@
 # @willcuii/eslint-config
 
+## 0.2.0
+
+### Minor Changes
+
+- [`cd1021b`](https://github.com/willcuii/turborepo-design-library-template/commit/cd1021bf30b81e48b9aac158efd25873a0d1993e) Thanks [@willcuii](https://github.com/willcuii)! - test
+
 ## 0.1.2
 
 ### Patch Changes
