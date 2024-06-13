@@ -1,6 +1,6 @@
 {
   "name": "@willcuii/eslint-config",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Prenuvo Inc.",
   "description": "Shared ESLint configuration for Prenuvo FE projects",
   "main": "index.js",
